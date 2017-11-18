@@ -16,6 +16,10 @@ type ResponseWriter struct {
 	start           time.Time
 }
 
+func NewResponseWriter(w http.ResponseWriter) *ResponseWriter {
+	return &ResponseWriter{w, false, http.StatusOK, time.Now()}
+}
+
 func (wr *ResponseWriter) Header() http.Header {
 	return wr.ResponseWriter.Header()
 }
