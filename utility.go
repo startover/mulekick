@@ -46,7 +46,7 @@ func WriteJSONChecksum(w http.ResponseWriter, code int, out interface{}) {
 
 	// calculate checksum and set as header
 	sum := sha256.Sum256(b.Bytes())
-	w.Header().Set("checksum", fmt.Sprintf("%x", sum))
+	w.Header().Set("x-checksum", fmt.Sprintf("%x", sum))
 	w.Header().Set("content-type", "application/json")
 	w.WriteHeader(code)
 
