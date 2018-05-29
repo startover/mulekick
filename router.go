@@ -22,7 +22,7 @@ type Router struct {
 }
 
 func (r Router) Get(endpoint string, middleware ...http.HandlerFunc) *mux.Route {
-	return r.Handle(endpoint, middleware...).Methods("GET")
+	return r.Handle(endpoint, middleware...).Methods("GET", "HEAD")
 }
 
 func (r Router) Post(endpoint string, middleware ...http.HandlerFunc) *mux.Route {
